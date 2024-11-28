@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, ExternalLink, TrendingUp, TrendingDown } from 'lucide-react';
+import { MapPin, Phone, Mail, ExternalLink, TrendingUp, TrendingDown, Search } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const pharmaciesProches = [
@@ -79,9 +79,25 @@ export function PharmacyNetwork() {
 
   return (
     <div className="space-y-6 p-6">
-      <h1 className="text-2xl font-bold text-gray-900">Réseau de Pharmacies</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-gray-900">Réseau de Pharmacies</h1>
+        <div className="flex gap-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Rechercher des produits..."
+              className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <Search className="w-5 h-5 text-gray-400 absolute left-3 top-2.5" />
+          </div>
+          {/* <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            <Calendar className="w-5 h-5" />
+            Voir le Calendrier
+          </button> */}
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <h2 className="text-lg font-semibold mb-4">Statistiques Rapides</h2>
           <div className="grid grid-cols-3 gap-4">

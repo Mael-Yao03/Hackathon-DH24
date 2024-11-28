@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { useAuthStore } from './store/authStore';
 import { routes } from './routes';
+import { Register } from './pages/Register';
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -30,6 +31,7 @@ function App() {
       <Toaster position="top-right" />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         {routes.map((route) => (
           <Route
             key={route.path}
