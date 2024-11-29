@@ -3,7 +3,6 @@ import { Search, Filter, Download } from 'lucide-react';
 // import { InventoryStats } from '../components/InventoryState';
 import { InventoryFilters } from '../components/InventoryFilter';
 import { InventoryTable } from '../components/InventoryTable';
-import { MLRecommendations } from '../components/MLRecommentation';
 
 export function InventoryHistory() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -46,10 +45,6 @@ export function InventoryHistory() {
                         <InventoryTable />
                     </div>
                 </div>
-            </div>
-
-            <div className="">
-                <MLRecommendations />
             </div>
         </div>
     );

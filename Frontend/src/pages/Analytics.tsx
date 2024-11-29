@@ -1,5 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { MLRecommendations } from '../components/MLRecommentation';
 
 const donneesVentes = [
   { month: 'Jan', sales: 4000 },
@@ -22,6 +23,8 @@ export function Analytics() {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-gray-900">Tableau de Bord Analytique</h1>
+
+      <MLRecommendations />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-lg shadow-sm">
