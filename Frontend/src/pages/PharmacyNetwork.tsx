@@ -1,6 +1,23 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, ExternalLink, TrendingUp, TrendingDown, Search } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  MapPin,
+  Phone,
+  Mail,
+  ExternalLink,
+  TrendingUp,
+  TrendingDown,
+  Search,
+} from 'lucide-react';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
 const pharmaciesProches = [
   {
@@ -78,46 +95,43 @@ export function PharmacyNetwork() {
   };
 
   return (
-    <div className="space-y-6 p-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">Réseau de Pharmacies</h1>
-        <div className="flex gap-4">
-          <div className="relative">
+    <div className="space-y-6 p-4 sm:p-6 lg:p-8">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <h1 className="text-2xl font-bold text-gray-900 text-center md:text-left">
+          Réseau de Pharmacies
+        </h1>
+        <div className="flex gap-4 w-full md:w-auto">
+          <div className="relative w-full sm:w-72">
             <input
               type="text"
               placeholder="Rechercher des produits..."
-              className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <Search className="w-5 h-5 text-gray-400 absolute left-3 top-2.5" />
           </div>
-          {/* <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            <Calendar className="w-5 h-5" />
-            Voir le Calendrier
-          </button> */}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Statistiques Rapides</h2>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <p className="text-2xl font-bold text-blue-600">{pharmaciesProches.length}</p>
-              <p className="text-sm text-gray-600">Pharmacies Proches</p>
-            </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg">
-              <p className="text-2xl font-bold text-green-600">98%</p>
-              <p className="text-sm text-gray-600">Disponibilité du Réseau</p>
-            </div>
-            <div className="text-center p-4 bg-purple-50 rounded-lg">
-              <p className="text-2xl font-bold text-purple-600">24/7</p>
-              <p className="text-sm text-gray-600">Support Disponible</p>
-            </div>
-          </div>
+      {/* Statistiques Rapides */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="text-center p-4 bg-blue-50 rounded-lg">
+          <p className="text-2xl font-bold text-blue-600">{pharmaciesProches.length}</p>
+          <p className="text-sm text-gray-600">Pharmacies Proches</p>
+        </div>
+        <div className="text-center p-4 bg-green-50 rounded-lg">
+          <p className="text-2xl font-bold text-green-600">98%</p>
+          <p className="text-sm text-gray-600">Disponibilité du Réseau</p>
+        </div>
+        <div className="text-center p-4 bg-purple-50 rounded-lg">
+          <p className="text-2xl font-bold text-purple-600">24/7</p>
+          <p className="text-sm text-gray-600">Support Disponible</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Grille principale */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Liste des pharmacies */}
         <div className="bg-white rounded-lg shadow-sm">
           <div className="p-6">
             <h2 className="text-lg font-semibold mb-4">Pharmacies Proches</h2>
@@ -125,14 +139,15 @@ export function PharmacyNetwork() {
               {pharmaciesProches.map((pharmacie) => (
                 <div
                   key={pharmacie.id}
-                  className={`border rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer ${selectedPharmacy?.id === pharmacie.id ? 'bg-blue-50' : ''
-                    }`}
+                  className={`border rounded-lg p-4 hover:bg-gray-50 transition-colors cursor-pointer ${
+                    selectedPharmacy?.id === pharmacie.id ? 'bg-blue-50' : ''
+                  }`}
                   onClick={() => setSelectedPharmacy(pharmacie)}
                 >
-                  <div className="flex justify-between items-start">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                     <div>
                       <h3 className="font-semibold text-lg">{pharmacie.name}</h3>
-                      <div className="mt-2 space-y-1">
+                      <div className="mt-2 space-y-1 text-sm">
                         <p className="flex items-center text-gray-600">
                           <MapPin className="w-4 h-4 mr-2" />
                           {pharmacie.address} ({pharmacie.distance})
@@ -147,12 +162,13 @@ export function PharmacyNetwork() {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 mt-4 sm:mt-0">
                       <span
-                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-base font-medium ${pharmacie.status === 'Ouvert'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-red-100 text-red-800'
-                          }`}
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-base font-medium ${
+                          pharmacie.status === 'Ouvert'
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-red-100 text-red-800'
+                        }`}
                       >
                         {pharmacie.status}
                       </span>
@@ -167,6 +183,7 @@ export function PharmacyNetwork() {
           </div>
         </div>
 
+        {/* Graphiques des tendances */}
         <div className="bg-white rounded-lg shadow-sm">
           <div className="p-6">
             <h2 className="text-lg font-semibold mb-4">
@@ -179,14 +196,16 @@ export function PharmacyNetwork() {
                 <BarChart data={selectedPharmacy.medicationTrends}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
-                  <YAxis label={{ value: 'Consommation', angle: -90, position: 'insideLeft' }} />
+                  <YAxis
+                    label={{
+                      value: 'Consommation',
+                      angle: -90,
+                      position: 'insideLeft',
+                    }}
+                  />
                   <Tooltip content={<CustomTooltip />} />
                   <Legend />
-                  <Bar
-                    dataKey="consommation"
-                    fill="#8884d8"
-                    name="Consommation"
-                  />
+                  <Bar dataKey="consommation" fill="#8884d8" name="Consommation" />
                 </BarChart>
               </ResponsiveContainer>
             ) : (
