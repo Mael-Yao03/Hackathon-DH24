@@ -10,7 +10,7 @@ const pharmaciesProches = [
     address: '123 Main St, Ville',
     phone: '(555) 123-4567',
     email: 'downtown@pharmacy.com',
-    status: 'ouvert',
+    status: 'Ouvert',
     medicationTrends: [
       { name: 'Antidouleurs', consommation: 1200, variation: 5 },
       { name: 'Antibiotiques', consommation: 800, variation: -3 },
@@ -24,7 +24,7 @@ const pharmaciesProches = [
     address: '456 West Ave, Ville',
     phone: '(555) 234-5678',
     email: 'westside@pharmacy.com',
-    status: 'ouvert',
+    status: 'Ouvert',
     medicationTrends: [
       { name: 'Antidouleurs', consommation: 950, variation: -1 },
       { name: 'Antibiotiques', consommation: 700, variation: 4 },
@@ -38,7 +38,7 @@ const pharmaciesProches = [
     address: '789 East Blvd, Ville',
     phone: '(555) 345-6789',
     email: 'eastside@pharmacy.com',
-    status: 'fermé',
+    status: 'Fermé',
     medicationTrends: [
       { name: 'Antidouleurs', consommation: 1100, variation: 3 },
       { name: 'Antibiotiques', consommation: 750, variation: -2 },
@@ -149,12 +149,12 @@ export function PharmacyNetwork() {
                     </div>
                     <div className="flex items-center space-x-2">
                       <span
-                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${pharmacie.status === 'ouvert'
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-base font-medium ${pharmacie.status === 'Ouvert'
                           ? 'bg-green-100 text-green-800'
                           : 'bg-red-100 text-red-800'
                           }`}
                       >
-                        {pharmacie.status.toUpperCase()}
+                        {pharmacie.status}
                       </span>
                       <button className="text-blue-600 hover:text-blue-800">
                         <ExternalLink className="w-5 h-5" />

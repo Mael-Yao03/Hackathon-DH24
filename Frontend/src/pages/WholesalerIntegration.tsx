@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TrendingUp, Package, Truck, DollarSign } from 'lucide-react';
 
 const grossistes = [
@@ -27,6 +27,14 @@ const grossistes = [
 ];
 
 export function WholesalerIntegration() {
+  const [evaluations, setEvaluations] = useState({});
+
+  const handleEvaluationSubmit = (grossisteId, newRating) => {
+    setEvaluations((prev) => ({
+      ...prev,
+      [grossisteId]: newRating,
+    }));
+  };
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-gray-900">Intégration des Grossistes</h1>
@@ -54,7 +62,28 @@ export function WholesalerIntegration() {
                         <p className="font-medium">{grossiste.rating}/5.0</p>
                       </div>
                     </div>
+                    {/* Formulaire d'évaluation */}
+                    <div className="mt-4 flex flex-col gap-2">
+                      <h4 className="font-semibold">Laissez votre évaluation :</h4>
+                      <div>
+                        <input
+                          type="number"
+                          placeholder="Évaluation (1-5)"
+                          className="border rounded-lg p-2 mr-2"
+                          onChange={(e) => handleEvaluationSubmit(grossiste.id, e.target.value)}
+                        />
+                        <button
+                          className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                          onClick={() => alert(`Évaluation soumise pour ${grossiste.name} !`)}
+                        >
+                          Soumettre
+                        </button>
+                      </div>
+                    </div>
                   </div>
+                  <a href="tel:+1234567890" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    Appeler
+                  </a>
                 </div>
                 <table className="w-full">
                   <thead>
