@@ -7,6 +7,7 @@ export interface Product {
   price: number;
   supplier: string;
   location: string;
+  threshold: number;
 }
 
 export interface Pharmacy {
@@ -22,4 +23,11 @@ export interface InventoryAlert {
   message: string;
   severity: 'low' | 'medium' | 'high';
   date: string;
+  read: boolean;
+  product: {
+    id: string;
+    name: string;
+    currentStock: number;
+    threshold: number;
+  };
 }

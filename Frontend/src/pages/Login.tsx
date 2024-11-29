@@ -13,7 +13,7 @@ export function Login() {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate('/dashboard');
+      navigate('/scanning');
       toast.success('Bienvenue !');
     } catch (error) {
       toast.error('Identifiants invalides');

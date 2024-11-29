@@ -31,45 +31,6 @@ export function WholesalerIntegration() {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-gray-900">Intégration des Grossistes</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-500">Total des Commandes</p>
-              <p className="text-2xl font-semibold mt-1">1 234</p>
-            </div>
-            <Package className="w-8 h-8 text-blue-500" />
-          </div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-500">Livraisons en Attente</p>
-              <p className="text-2xl font-semibold mt-1">12</p>
-            </div>
-            <Truck className="w-8 h-8 text-yellow-500" />
-          </div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-500">Dépenses Mensuelles</p>
-              <p className="text-2xl font-semibold mt-1">45 678 $</p>
-            </div>
-            <DollarSign className="w-8 h-8 text-green-500" />
-          </div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-500">Tendances des Prix</p>
-              <p className="text-2xl font-semibold mt-1">+2,4%</p>
-            </div>
-            <TrendingUp className="w-8 h-8 text-purple-500" />
-          </div>
-        </div>
-      </div>
-
       <div className="bg-white rounded-lg shadow-sm">
         <div className="p-6">
           <h2 className="text-lg font-semibold mb-4">Grossistes Connus</h2>
@@ -94,9 +55,6 @@ export function WholesalerIntegration() {
                       </div>
                     </div>
                   </div>
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                    Passer Commande
-                  </button>
                 </div>
                 <table className="w-full">
                   <thead>
@@ -113,11 +71,6 @@ export function WholesalerIntegration() {
                         <td className="py-2">{produit.name}</td>
                         <td className="py-2">{produit.price}</td>
                         <td className="py-2">{produit.stock}</td>
-                        <td className="py-2 text-right">
-                          <button className="text-blue-600 hover:text-blue-800">
-                            Ajouter au Panier
-                          </button>
-                        </td>
                       </tr>
                     ))}
                   </tbody>

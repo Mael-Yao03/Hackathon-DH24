@@ -1,34 +1,31 @@
-import React from 'react';
 import {
-  LayoutDashboard,
-  Calendar,
   Network,
   Store,
   BarChart3,
   Settings,
-  BarChartBig
+  Scan,
+  History
 } from 'lucide-react';
-import { Dashboard } from '../pages/Dashboard';
-import { ExpirationManagement } from '../pages/ExpirationManagement';
 import { PharmacyNetwork } from '../pages/PharmacyNetwork';
 import { WholesalerIntegration } from '../pages/WholesalerIntegration';
 import { Analytics } from '../pages/Analytics';
 import { Settings as SettingsPage } from '../pages/Settings';
-import RecommandationsPharmacie from '../pages/Prediction';
+import { InventoryScanning } from '../pages/InventoryScanning';
+import { InventoryHistory } from '../pages/InventoryHistory';
 
 
 export const routes = [
   {
-    path: '/dashboard',
-    element: <Dashboard />,
-    icon: LayoutDashboard,
-    label: 'Tableau de bord'
+    path: '/scanning',
+    element: <InventoryScanning />,
+    icon: Scan,
+    label: 'Scan des Médicaments'
   },
   {
-    path: '/expiration',
-    element: <ExpirationManagement />,
-    icon: Calendar,
-    label: 'Gestion des Péremptions'
+    path: '/history',
+    element: <InventoryHistory />,
+    icon: History,
+    label: 'Historique des Mouvements'
   },
   {
     path: '/network',
@@ -47,12 +44,6 @@ export const routes = [
     element: <Analytics />,
     icon: BarChart3,
     label: 'Analyses'
-  },
-  {
-    path: '/prediction',
-    element: <RecommandationsPharmacie />,
-    icon: BarChartBig,
-    label: 'Prediction'
   },
   {
     path: '/settings',

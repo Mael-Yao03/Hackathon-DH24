@@ -39,7 +39,7 @@ function App() {
             element={<PrivateRoute>{route.element}</PrivateRoute>}
           />
         ))}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/scanning" replace />} />
       </Routes>
     </BrowserRouter>
   );
