@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import toast from 'react-hot-toast';
+import PharmaGeap from '../assets/PharmaGeap.png'
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -24,6 +25,7 @@ export function Login() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
         <div>
+          <img src={PharmaGeap} alt="logo" width={180} />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Connectez-vous à votre pharmacie
           </h2>
