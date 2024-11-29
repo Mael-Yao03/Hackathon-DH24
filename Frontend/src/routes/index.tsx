@@ -37,7 +37,7 @@ export const routes = [
     path: '/wholesaler',
     element: <WholesalerIntegration />,
     icon: Store,
-    label: 'Intégration Grossistes'
+    label: 'Grossistes'
   },
   {
     path: '/analytics',

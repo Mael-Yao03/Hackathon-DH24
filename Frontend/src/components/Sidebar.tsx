@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { routes } from '../routes';
+import PharmaGeap from '../assets/PharmaGeap.png';
 
 export function Sidebar() {
   const location = useLocation();
@@ -10,37 +11,47 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Bouton pour afficher/masquer la sidebar */}
+      {/* Bouton Menu */}
       <button
-        className={`fixed top-4 z-20 p-1 bg-blue-600 text-white rounded-full shadow-lg w-6 h-6 flex items-center justify-center transition-all duration-300
-          ${isOpen ? 'right-4' : 'left-2'}`}
         onClick={toggleSidebar}
+        className="fixed top-18 -left-0 z-50 bg-blue-600 text-white p-3 rounded-full shadow-lg md:hidden"
+        aria-label="Ouvrir le menu"
       >
-        <span className="sr-only">Toggle Sidebar</span>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4"
           fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
           stroke="currentColor"
-          className="w-5 h-5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
+          {isOpen ? (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          ) : (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          )}
         </svg>
       </button>
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 transform lg:translate-x-0 transition-transform duration-300 z-10 w-64 bg-white shadow-lg ${
+        className={`fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        } transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:h-screen`}
       >
         <div className="p-4 border-b">
-          <h1 className="text-xl font-bold text-gray-800">PharmaSys</h1>
+          <Link to='/scanning'>
+            <img src={PharmaGeap} alt="logo" width={180} />
+          </Link>
         </div>
         <nav className="p-4">
           {routes.map((route) => {
@@ -54,7 +65,6 @@ export function Sidebar() {
                     ? 'bg-blue-50 text-blue-600'
                     : 'text-gray-700 hover:bg-gray-50'
                 }`}
-                onClick={() => setIsOpen(false)} // Fermer la sidebar après la navigation
               >
                 <route.icon className="w-5 h-5" />
                 <span>{route.label}</span>
@@ -64,12 +74,12 @@ export function Sidebar() {
         </nav>
       </div>
 
-      {/* Overlay pour cacher la sidebar en cliquant à l'extérieur */}
+      {/* Overlay pour fermer la sidebar */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-5 lg:hidden"
           onClick={toggleSidebar}
-        />
+          className="fixed inset-0 bg-black opacity-50 md:hidden"
+        ></div>
       )}
     </>
   );
