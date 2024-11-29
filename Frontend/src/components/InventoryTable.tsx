@@ -8,7 +8,8 @@ const mockData = [
         time: '10:30',
         product: 'Doliprane 1000mg',
         type: 'entrée',
-        quantity: 150
+        lotNumber: 'LOT12345', // Ajout du numéro de lot
+        quantity: 150,
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ const mockData = [
         time: '11:15',
         product: 'Efferalgan 500mg',
         type: 'sortie',
-        quantity: 75
+        lotNumber: 'LOT12346', // Ajout du numéro de lot
+        quantity: 75,
     },
     // ... plus d'entrées
 ];
@@ -30,6 +32,7 @@ export function InventoryTable() {
                         <th className="pb-4 pl-4">Date</th>
                         <th className="pb-4">Produit</th>
                         <th className="pb-4">Type</th>
+                        <th className="pb-4">Numéro de Lot</th>
                         <th className="pb-4">Quantité</th>
                     </tr>
                 </thead>
@@ -66,13 +69,12 @@ export function InventoryTable() {
                                     {item.type}
                                 </span>
                             </td>
+                            <td className="py-4">{item.lotNumber}</td> {/* Affichage du numéro de lot */}
                             <td className="py-4">
                                 <span className="font-medium">
                                     {item.type === 'entrée' ? '+' : '-'}{item.quantity}
                                 </span>
                             </td>
-                            <td className="py-4">{item.operator}</td>
-                            <td className="py-4">{item.supplier}</td>
                         </tr>
                     ))}
                 </tbody>

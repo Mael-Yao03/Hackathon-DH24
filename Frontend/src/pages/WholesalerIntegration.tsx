@@ -100,6 +100,11 @@ export function WholesalerIntegration() {
                         <td className="py-2">{produit.name}</td>
                         <td className="py-2">{produit.price}</td>
                         <td className="py-2">{produit.stock}</td>
+                        <td className="py-2 text-right">
+                          <button className="text-blue-600 hover:text-blue-800">
+                            Ajouter au panier
+                          </button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
