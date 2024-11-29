@@ -9,7 +9,9 @@ export function Sidebar() {
   return (
     <div className="w-64 bg-white h-screen shadow-lg">
       <div className="p-4 border-b">
-        <img src={PharmaGeap} alt="logo" width={180} />
+        <Link to='/scanning'>
+          <img src={PharmaGeap} alt="logo" width={180} />
+        </Link>
       </div>
       <nav className="p-4">
         {routes.map((route) => {
